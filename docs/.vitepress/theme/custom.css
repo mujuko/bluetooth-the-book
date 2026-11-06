@@ -1,0 +1,231 @@
+/* ---------- 色とフォント ---------- */
+:root {
+  --vp-font-family-base: 'Inter', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP',
+    'Yu Gothic UI', 'Yu Gothic', Meiryo, sans-serif;
+
+  --vp-c-brand-1: #0f766e;
+  --vp-c-brand-2: #0d9488;
+  --vp-c-brand-3: #0f766e;
+  --vp-c-brand-soft: rgba(13, 148, 136, 0.14);
+
+  /* 図の配色：a=電波/コントローラ b=データ/ホスト c=注目 d=失敗/攻撃 e=その他 n=無彩色 */
+  --f-a: #dbeafe;
+  --f-a-s: #2563eb;
+  --f-b: #ccfbf1;
+  --f-b-s: #0d9488;
+  --f-c: #fef3c7;
+  --f-c-s: #d97706;
+  --f-d: #ffe4e6;
+  --f-d-s: #e11d48;
+  --f-e: #ede9fe;
+  --f-e-s: #7c3aed;
+  --f-n: #f3f4f6;
+  --f-n-s: #9ca3af;
+}
+
+.dark {
+  --vp-c-brand-1: #5eead4;
+  --vp-c-brand-2: #2dd4bf;
+  --vp-c-brand-3: #0f766e;
+  --vp-c-brand-soft: rgba(45, 212, 191, 0.14);
+
+  --f-a: #172554;
+  --f-a-s: #60a5fa;
+  --f-b: #042f2e;
+  --f-b-s: #2dd4bf;
+  --f-c: #451a03;
+  --f-c-s: #fbbf24;
+  --f-d: #4c0519;
+  --f-d-s: #fb7185;
+  --f-e: #2e1065;
+  --f-e-s: #a78bfa;
+  --f-n: #1f2937;
+  --f-n-s: #6b7280;
+}
+
+/* ---------- 本文 ---------- */
+.vp-doc p,
+.vp-doc li {
+  line-height: 1.9;
+}
+.vp-doc h1 {
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+.vp-doc h2 {
+  line-height: 1.5;
+}
+.vp-doc td,
+.vp-doc th {
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* 言葉の式。数学が苦手な人でも読めるよう、記号でなく言葉で書く */
+.vp-doc .formula {
+  margin: 1.2rem 0;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  background: var(--vp-c-bg-soft);
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+/* ---------- 囲み記事 ---------- */
+.vp-doc .custom-block {
+  border-radius: 8px;
+}
+.vp-doc .custom-block .custom-block-title {
+  font-weight: 700;
+}
+.custom-block.box-goal {
+  background: var(--vp-c-brand-soft);
+  border: 1px solid transparent;
+}
+.custom-block.box-primer {
+  background: color-mix(in srgb, var(--f-e) 45%, transparent);
+  border: 1px solid var(--f-e-s);
+}
+.custom-block.box-primer .primer-link {
+  margin-top: 8px;
+  font-size: 13px;
+}
+.custom-block.box-analogy {
+  background: color-mix(in srgb, var(--f-c) 50%, transparent);
+  border-left: 4px solid var(--f-c-s);
+}
+.custom-block.box-bio {
+  background: color-mix(in srgb, var(--f-b) 50%, transparent);
+  border-left: 4px solid var(--f-b-s);
+}
+.custom-block.box-se {
+  background: color-mix(in srgb, var(--f-a) 50%, transparent);
+  border-left: 4px solid var(--f-a-s);
+}
+.custom-block.box-deep {
+  background: var(--vp-c-bg-soft);
+  border: 1px dashed var(--vp-c-text-3);
+}
+.custom-block.box-extra {
+  background: var(--vp-c-bg-soft);
+  border-left: 4px solid var(--vp-c-text-3);
+}
+
+/* ---------- 図 ---------- */
+.vp-doc figure.fig {
+  margin: 1.8rem 0;
+}
+.fig .fig-scroll {
+  overflow-x: auto;
+}
+.fig svg {
+  display: block;
+  width: 100%;
+  min-width: 520px;
+  height: auto;
+  font-family: var(--vp-font-family-base);
+}
+.vp-doc figure.fig figcaption {
+  margin-top: 0.6rem;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--vp-c-text-2);
+  text-align: center;
+}
+
+.fig text {
+  fill: var(--vp-c-text-1);
+  font-size: 13px;
+}
+.fig text.t2 {
+  fill: var(--vp-c-text-2);
+  font-size: 11.5px;
+}
+.fig text.tb {
+  font-weight: 700;
+}
+.fig text.m {
+  text-anchor: middle;
+}
+.fig text.r {
+  text-anchor: end;
+}
+.fig text.mono {
+  font-family: var(--vp-font-family-mono);
+  font-size: 12px;
+}
+.fig text.halo {
+  paint-order: stroke;
+  stroke: var(--vp-c-bg);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+.fig text.err {
+  fill: var(--f-d-s);
+}
+.fig text.acc {
+  fill: var(--f-c-s);
+}
+
+.fig .ln {
+  stroke: var(--vp-c-text-2);
+  stroke-width: 1.4;
+  fill: none;
+}
+.fig .ln-d {
+  stroke: var(--vp-c-text-3);
+  stroke-width: 1.2;
+  stroke-dasharray: 4 3;
+  fill: none;
+}
+.fig .ln-err {
+  stroke: var(--f-d-s);
+  stroke-width: 1.6;
+  fill: none;
+}
+.fig .ln-acc {
+  stroke: var(--f-c-s);
+  stroke-width: 1.8;
+  fill: none;
+}
+.fig .ln-a {
+  stroke: var(--f-a-s);
+  stroke-width: 1.8;
+  fill: none;
+}
+.fig .ln-b {
+  stroke: var(--f-b-s);
+  stroke-width: 1.8;
+  fill: none;
+}
+
+.fig .fa {
+  fill: var(--f-a);
+  stroke: var(--f-a-s);
+}
+.fig .fb {
+  fill: var(--f-b);
+  stroke: var(--f-b-s);
+}
+.fig .fc {
+  fill: var(--f-c);
+  stroke: var(--f-c-s);
+}
+.fig .fd {
+  fill: var(--f-d);
+  stroke: var(--f-d-s);
+}
+.fig .fe {
+  fill: var(--f-e);
+  stroke: var(--f-e-s);
+}
+.fig .fn {
+  fill: var(--f-n);
+  stroke: var(--f-n-s);
+}
+.fig .ghost {
+  fill: transparent;
+  stroke: var(--f-n-s);
+  stroke-dasharray: 3 3;
+}

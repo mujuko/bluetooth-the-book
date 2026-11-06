@@ -1,0 +1,16 @@
+{
+  "name": "bluetooth-the-book",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Bluetooth Low Energy をしくみから学ぶ日本語の教科書",
+  "scripts": {
+    "docs:dev": "vitepress dev docs --port 5173",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs --port 4173"
+  },
+  "devDependencies": {
+    "markdown-it-container": "4.0.0",
+    "vitepress": "1.6.4"
+  }
+}
