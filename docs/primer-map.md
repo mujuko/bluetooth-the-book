@@ -1,6 +1,6 @@
 # 付録C 原本との対応表
 
-本書と原本 [The Bluetooth® Low Energy Primer](https://www.bluetooth.com/bluetooth-le-primer/) v1.3.0（2024年10月15日版）の対応をまとめました。原本は下の層から順に進みますが、本書は順番を組み替えているので、対応は飛び飛びになっています。
+第I〜IV部と原本 [The Bluetooth® Low Energy Primer](https://www.bluetooth.com/bluetooth-le-primer/) v1.3.0（2024年10月15日版）の対応をまとめました。原本は下の層から順に進みますが、本書は順番を組み替えているので、対応は飛び飛びになっています。第V部（Classic 編）の対応は[付録D](./core-map)を見てください。
 
 **扱い**の見方は次のとおりです。
 
@@ -81,7 +81,7 @@
 | §14.4 | `AUX_CONNEXT_REQ` | `AUX_CONNECT_REQ` の誤記と思われる |
 | §14.5 | `AUX_EXT_IND` | 原本の PDU の表に存在せず、`AUX_ADV_IND` のことと思われる |
 | §7.8.5.3.3 | BIG の説明で「Figure 28」を参照 | 該当する図は Figure 34 と思われる |
-| §3 | EDR は 2 Mb/s | EDR には 3 Mb/s のモードもある（本書では具体的な値には触れていない） |
+| §3 | EDR は 2 Mb/s | EDR には 3 Mb/s のモードもある（[第21章](./ch21)） |
 
 ## 本書について
 

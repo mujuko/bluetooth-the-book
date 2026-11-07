@@ -1,6 +1,6 @@
 # Bluetooth the Book
 
-Bluetooth Low Energy をしくみから学ぶ、日本語のやさしい教科書です。
+Bluetooth LE と Classic（BR/EDR）をしくみから学ぶ、日本語のやさしい教科書です。
 
 **読む：** https://mujuko.github.io/bluetooth-the-book/
 
@@ -9,6 +9,8 @@ Bluetooth Low Energy をしくみから学ぶ、日本語のやさしい教科�
 ## 原本との関係
 
 [The Bluetooth® Low Energy Primer](https://www.bluetooth.com/bluetooth-le-primer/) v1.3.0（© Bluetooth SIG, Inc.）を骨組みの参考にしていますが、翻訳ではありません。文章、図、確認問題、章の構成はすべて書き下ろしです。本文でカットした話は、各章末の枠と付録C に原本の節番号つきで残しています。
+
+第V部（Classic 編）は [Bluetooth Core Specification v7.0 の Architecture 編](https://www.bluetooth.com/wp-content/uploads/Files/Specification/HTML/Core_v7.0/out/en/architecture%2C-change-history%2C-and-conventions/architecture--arch-.html)を骨組みの参考にしています。こちらも翻訳ではなく書き下ろしで、対応は付録D にまとめました。
 
 本書は Bluetooth SIG とは関係のない非公式の教材です。Bluetooth® は Bluetooth SIG, Inc. の登録商標です。
 

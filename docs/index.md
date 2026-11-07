@@ -4,15 +4,18 @@ title: Bluetooth the Book
 titleTemplate: false
 hero:
   name: Bluetooth the Book
-  text: Bluetooth LE を、<br>しくみから
-  tagline: 電波の物理からアプリのデータ構造まで。Bluetooth Low Energy の全体をやさしくたどる、日本語の教科書です。
+  text: Bluetooth を、<br>しくみから
+  tagline: 電波の物理からアプリのデータ構造まで。Bluetooth LE と Classic の全体をやさしくたどる、日本語の教科書です。
   actions:
     - theme: brand
       text: はじめに
       link: /preface
     - theme: alt
-      text: 第1章から読む
+      text: LE 編（第1章）から
       link: /ch01
+    - theme: alt
+      text: Classic 編（第19章）から
+      link: /ch19
 features:
   - title: 第I部 全体像をつかむ
     details: Bluetooth LE はなぜ電池が長持ちするのか。仕様書はどう分かれ、ソフトとチップはどう役割分担しているのか。
@@ -30,4 +33,8 @@ features:
     details: ペアリングと暗号、開発で出会う現実、そして心拍の数字が1つ届くまでの総復習。
     link: /ch16
     linkText: 第16〜18章
+  - title: 第V部 Classic（BR/EDR）
+    details: ヘッドホンで音楽が鳴るまで。ピコネットの時計、スロット、Inquiry と Page、ACL と eSCO、L2CAP と SDP、A2DP と HFP、ペアリング、AFH。
+    link: /ch19
+    linkText: 第19〜31章
 ---

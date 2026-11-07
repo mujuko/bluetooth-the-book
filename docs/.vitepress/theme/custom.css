@@ -83,11 +83,13 @@
   background: var(--vp-c-brand-soft);
   border: 1px solid transparent;
 }
-.custom-block.box-primer {
+.custom-block.box-primer,
+.custom-block.box-spec {
   background: color-mix(in srgb, var(--f-e) 45%, transparent);
   border: 1px solid var(--f-e-s);
 }
-.custom-block.box-primer .primer-link {
+.custom-block.box-primer .primer-link,
+.custom-block.box-spec .primer-link {
   margin-top: 8px;
   font-size: 13px;
 }

@@ -2,11 +2,14 @@ import { defineConfig } from 'vitepress'
 import container from 'markdown-it-container'
 
 const PRIMER_URL = 'https://www.bluetooth.com/bluetooth-le-primer/'
+const ARCH_URL =
+  'https://www.bluetooth.com/wp-content/uploads/Files/Specification/HTML/Core_v7.0/out/en/architecture%2C-change-history%2C-and-conventions/architecture--arch-.html'
 
 // 本書で使う囲み記事。::: 名前 [任意の見出し] で書く。
 const BOXES: Record<string, string> = {
   goal: 'この章のゴール',
   primer: '原本にはこんな話も（本書では省略）',
+  spec: '仕様書にはこんな話も（本書では省略）',
   analogy: 'たとえ話',
   bio: '生物系の人へ',
   se: 'SE の人へ',
@@ -27,6 +30,9 @@ function useBoxes(md: any) {
         if (name === 'primer') {
           return `<p class="primer-link"><a href="${PRIMER_URL}" target="_blank" rel="noreferrer">原本（英語）を開く</a></p></div>\n`
         }
+        if (name === 'spec') {
+          return `<p class="primer-link"><a href="${ARCH_URL}" target="_blank" rel="noreferrer">Core v7.0 の Architecture 編（英語）を開く</a></p></div>\n`
+        }
         return '</div>\n'
       }
     })
@@ -41,7 +47,7 @@ const chapter = (n: number, title: string) => {
 export default defineConfig({
   lang: 'ja-JP',
   title: 'Bluetooth the Book',
-  description: 'Bluetooth Low Energy をしくみから学ぶ、日本語のやさしい教科書（非公式）',
+  description: 'Bluetooth LE と Classic（BR/EDR）をしくみから学ぶ、日本語のやさしい教科書（非公式）',
   base: '/bluetooth-the-book/',
   cleanUrls: true,
   head: [
@@ -54,11 +60,17 @@ export default defineConfig({
   themeConfig: {
     logo: '/favicon.svg',
     nav: [
-      { text: 'はじめに', link: '/preface' },
-      { text: '第1章から読む', link: '/ch01' },
-      { text: '用語集', link: '/glossary' },
-      { text: '数字の早見表', link: '/numbers' },
-      { text: '原本との対応', link: '/primer-map' }
+      { text: 'LE 編', link: '/ch01' },
+      { text: 'Classic 編', link: '/ch19' },
+      {
+        text: '付録',
+        items: [
+          { text: '数字の早見表', link: '/numbers' },
+          { text: '用語集', link: '/glossary' },
+          { text: 'LE Primer との対応', link: '/primer-map' },
+          { text: 'Core 仕様との対応（Classic）', link: '/core-map' }
+        ]
+      }
     ],
     sidebar: [
       { text: 'はじめに', link: '/preface' },
@@ -101,11 +113,30 @@ export default defineConfig({
         ]
       },
       {
+        text: '第V部 Classic（BR/EDR）',
+        items: [
+          chapter(19, 'Classic の全体像'),
+          chapter(20, 'ピコネットと時計'),
+          chapter(21, '電波とパケット'),
+          chapter(22, '見つける、つなぐ'),
+          chapter(23, '5階建ての運び道'),
+          chapter(24, 'ACL：確実に運ぶ'),
+          chapter(25, 'SCO と eSCO：声を運ぶ'),
+          chapter(26, 'リンクマネージャと省電力'),
+          chapter(27, 'L2CAP と SDP'),
+          chapter(28, 'プロファイル'),
+          chapter(29, 'ペアリングと暗号'),
+          chapter(30, '混雑をよける'),
+          chapter(31, '総まとめ：音楽が鳴るまで')
+        ]
+      },
+      {
         text: '付録',
         items: [
           { text: '付録A 数字の早見表', link: '/numbers' },
           { text: '付録B 用語集', link: '/glossary' },
-          { text: '付録C 原本との対応表', link: '/primer-map' }
+          { text: '付録C 原本との対応表', link: '/primer-map' },
+          { text: '付録D Core 仕様との対応表', link: '/core-map' }
         ]
       }
     ],
@@ -126,7 +157,7 @@ export default defineConfig({
     },
     footer: {
       message: '本書は Bluetooth SIG とは無関係の非公式教材です。Bluetooth® は Bluetooth SIG, Inc. の登録商標です。',
-      copyright: '参考：The Bluetooth® Low Energy Primer v1.3.0（© Bluetooth SIG, Inc.）。本文と図は本書の書き下ろしです。'
+      copyright: '参考：The Bluetooth® Low Energy Primer v1.3.0、Bluetooth® Core Specification v7.0（© Bluetooth SIG, Inc.）。本文と図は本書の書き下ろしです。'
     },
     search: {
       provider: 'local',
