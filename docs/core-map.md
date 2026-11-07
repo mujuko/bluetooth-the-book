@@ -75,19 +75,46 @@ Architecture 編には具体的な数字があまり載っていないので、�
 | [変更履歴](https://www.bluetooth.com/wp-content/uploads/Files/Specification/HTML/Core_v7.0/out/en/architecture%2C-change-history%2C-and-conventions/core-specification-change-history.html) | 機能が加わった版、削除された機能 | 19, 26 |
 | [Assigned Numbers](https://www.bluetooth.com/specifications/assigned-numbers/) | UUID と PSM の値 | 27, 28 |
 
-## Core 仕様の外から補った内容
+## プロファイルの仕様書との照合
 
-次の内容は Core 仕様に書かれていません。一般的な解説や実装の資料に基づいて補ったもので、**各プロファイルの仕様書などの原典とは照合していません**。正確な情報は原典を確かめてください。
+プロファイルなどは Core 仕様の外にあります。第25、28、31章の記述に関わる部分を、次の版と照合しました（2026年11月）。各仕様書の全体を読み通したわけではありません。
+
+| 仕様書 | 確かめた内容 | 章 |
+|---|---|---|
+| [RFCOMM v1.2](https://www.bluetooth.com/specifications/specs/rfcomm-1-2/) | TS 07.10 との関係、サーバチャネル 1〜30、最大 60 接続、RS-232 の再現 | 28 |
+| [SPP v1.2](https://www.bluetooth.com/specifications/specs/serial-port-profile-1-2/) | 用途、SDP の記述の形式 | 27, 28 |
+| [HSP v1.2](https://www.bluetooth.com/specifications/specs/headset-profile-1-2/) | SPP と GAP への依存、SCO と CVSD | 28 |
+| [HFP v1.10](https://www.bluetooth.com/specifications/specs/hands-free-profile-1-10/) | RFCOMM と GAP への依存、AG と HF、AT コマンド、コーデック、eSCO の設定 | 25, 28, 31 |
+| [A2DP v1.4.1](https://www.bluetooth.com/specifications/specs/advanced-audio-distribution-profile/) | SBC の必須、任意のコーデック、推奨の設定、SBC のヘッダ、GAVDP への依存 | 28, 31 |
+| [GAVDP v1.3](https://www.bluetooth.com/specifications/specs/generic-a-v-distribution-profile-1-3/) | ストリームを開く手順、GAP への依存 | 28 |
+| [AVDTP v1.3](https://www.bluetooth.com/specifications/specs/a-v-distribution-transport-protocol-1-3/) | RTP との関係、チャネルの開き方、12 バイトのヘッダ | 28, 31 |
+| [AVRCP v1.6.3](https://www.bluetooth.com/specifications/specs/a-v-remote-control-profile1-6-3/) | CT と TG、AV/C、絶対音量、SDP の記述 | 28 |
+| [AVCTP v1.4](https://www.bluetooth.com/specifications/specs/a-v-control-transport-protocol-1-4/) | L2CAP の使い方 | 28 |
+| [HID v1.1.2](https://www.bluetooth.com/specifications/specs/human-interface-device-profile1-1-2ed2/) | 2本のチャネル、USB の HID との関係、Sniff の勧め | 28 |
+| [GOEP v2.1.1](https://www.bluetooth.com/specifications/specs/generic-object-exchange-profile-2-1-1/) | OBEX over L2CAP、古い版との互換 | 28 |
+| [OPP v1.2.1](https://www.bluetooth.com/specifications/specs/object-push-profile-1-2-1/)、[PBAP v1.2.3](https://www.bluetooth.com/specifications/specs/phone-book-access-profile-1-2-3/)、[MAP v1.4.3](https://www.bluetooth.com/specifications/specs/message-access-profile/) | 依存関係、OBEX の土台 | 28 |
+| [VDP v1.1](https://www.bluetooth.com/specifications/specs/video-distribution-profile-1-1/) | GAVDP への依存 | 28 |
+| [3DSP v1.0.3](https://www.bluetooth.com/specifications/specs/3d-synchronization-profile-1-0-3/) | 3D 眼鏡の同期の用途 | 25 |
+
+次の値は、仕様書に直接は書かれておらず、仕様書の値から本書が計算したものです。
+
+| 内容 | 計算のもとになる値 | 章 |
+|---|---|---|
+| HFP の T2 で 60 バイトを 12 スロットごとに送る | 片方向 8000 バイト/秒、7.5 ms のフレーム、2-EV3 の最大 60 バイト | 25, 31 |
+| SBC の 5 フレームで 612 バイトになる | 推奨の 119 バイト、各ヘッダの長さ。まとめるフレームの個数は本書の例 | 31 |
+| 音楽が電波の時間の 15% や 26% を使う | 上の値とパケットの種類 | 28, 31 |
+
+## 照合していない内容
+
+次の内容は仕様書と照合していません。正確な情報は原典を確かめてください。
 
 | 内容 | 章 |
 |---|---|
-| RFCOMM、A2DP、AVDTP、AVRCP、HFP、HID、OBEX の説明 | 28, 31 |
-| SBC の 328 kb/s、119 バイトのフレーム、AVDTP のヘッダの長さ（総まとめの計算の前提） | 28, 31 |
-| HFP の通話の設定（2-EV3、12 スロット）と mSBC、LC3 | 25, 28 |
-| KNOB、BIAS の攻撃の説明 | 29 |
-| 3D 眼鏡の例、古い呼び名、出力の等級（Class 1, 2） | 19, 21, 25 |
+| KNOB、BIAS の攻撃の説明（報道と研究者の発表に基づく） | 29 |
+| 古い呼び名、出力の等級（Class 1, 2） | 19, 21 |
 | Wi-Fi のチャネル幅に基づく AFH の計算 | 30 |
-| 音声の品質の説明、用途ごとの使い分けの提案（31.4 節） | 25, 31 |
+| AT コマンドの歴史、音声の品質の説明 | 25, 28 |
+| 製品の典型的な動き（通話で A2DP を止めるなど）、用途ごとの使い分けの提案（31.4 節） | 28, 31 |
 | 第31章の総まとめ、確認問題、たとえ話、生物系と SE 向けの説明、図 | 全体 |
 
 Classic 編の内容は、実機で確かめたものではありません。HCI のログなどで実際の動作を観察すると、順番や細部は機器によって異なるはずです。
@@ -102,6 +129,7 @@ Classic 編の内容は、実機で確かめたものではありません。HCI
 | ARCH §3.1.1 | ATT の固定チャネルは ACL-U または LE-U | L2CAP §2.1 の ACL-U の CID の表には `0x0004` がない。Assigned Numbers には ATT の PSM `0x001F` がある。本書は Classic の上の ATT を PSM で開くものとして書いた |
 | ARCH §3.3.1 | 仕様は1台の機器が同時に1つの物理チャネルしか使えないと仮定 | 同じ節で、高度な機器は複数を同時に使えるかもしれないとも述べる。本書は基本の仮定で説明した |
 | RF | 出力の等級（Power Class）の表がない | 古い版にはあった。本書は従来の呼び方として第21章で紹介するにとどめた |
+| GOEP v2.1.1 §1.2 | OPP は GOEP と GAP に依存すると例示 | OPP v1.2.1 §1.2 は、古い版との互換のために SPP にも依存すると書く。図28-1 は OPP の記述に合わせた |
 
 ## 本書について
 
