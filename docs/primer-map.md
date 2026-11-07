@@ -83,6 +83,10 @@
 | §7.8.5.3.3 | BIG の説明で「Figure 28」を参照 | 該当する図は Figure 34 と思われる |
 | §3 | EDR は 2 Mb/s | EDR には 3 Mb/s のモードもある（[第21章](./ch21)） |
 
+## コア仕様との照合
+
+第I〜IV部の記述は、2026年11月に Core v7.0 と照合しました。原本の v1.3.0 は Core 6.0 までの内容なので、それより後の変更（HDT PHY、データ署名の廃止、セキュリティモード4など）は、照合の際に本文へ反映しました。記述ごとの照合の記録は [GitHub の review フォルダ](https://github.com/mujuko/bluetooth-the-book/tree/main/review)にあります。
+
 ## 本書について
 
 本書は Bluetooth SIG とは関係のない非公式の教材です。Bluetooth® の名称とロゴは Bluetooth SIG, Inc. の登録商標です。

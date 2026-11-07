@@ -34,6 +34,8 @@ Bluetooth には、LE（Low Energy）と Classic（BR/EDR）という別々の�
 
 第V部（Classic 編）の骨組みにしたのは、原本ではなく [Bluetooth Core Specification v7.0 の Architecture 編](https://www.bluetooth.com/wp-content/uploads/Files/Specification/HTML/Core_v7.0/out/en/architecture%2C-change-history%2C-and-conventions/architecture--arch-.html)です。原本は LE 専用の解説だからです。こちらも翻訳ではなく書き下ろしで、章末の枠は「仕様書にはこんな話も」という名前になっています。対応は[付録D](./core-map)にまとめました。第V部で「原本」と言うときは、第I〜IV部と同じ LE Primer のことです。
 
+本書の記述は、2026年11月に Core v7.0 と関連する仕様書に照らして、1つずつ確かめました。原本が扱う Core 6.0 より後の変更も、関係する章に反映しています。どの記述をどの節で確かめたかは、[GitHub の review フォルダ](https://github.com/mujuko/bluetooth-the-book/tree/main/review)に記録を残しました。ただし、実際の機器では確かめていません。
+
 ## 囲み記事の読み方
 
 本文のあいだに、次のような枠が出てきます。「たとえ話」「生物系の人へ」「SE の人へ」は、自分に合うものだけ読めば十分です。
