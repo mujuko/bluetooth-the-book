@@ -47,7 +47,7 @@ const chapter = (n: number, title: string) => {
 export default defineConfig({
   lang: 'ja-JP',
   title: 'Bluetooth the Book',
-  description: 'Bluetooth LE と Classic（BR/EDR）をしくみから学ぶ、日本語のやさしい教科書（非公式）',
+  description: 'Bluetooth Classic（BR/EDR）と LE をしくみから学ぶ、日本語のやさしい教科書（非公式）',
   base: '/bluetooth-the-book/',
   cleanUrls: true,
   head: [
@@ -60,8 +60,9 @@ export default defineConfig({
   themeConfig: {
     logo: '/favicon.svg',
     nav: [
-      { text: 'LE 編', link: '/ch01' },
-      { text: 'Classic 編', link: '/ch19' },
+      { text: '基礎', link: '/ch01' },
+      { text: 'Classic 編', link: '/ch06' },
+      { text: 'LE 編', link: '/ch18' },
       {
         text: '付録',
         items: [
@@ -75,59 +76,61 @@ export default defineConfig({
     sidebar: [
       { text: 'はじめに', link: '/preface' },
       {
-        text: '第I部 全体像をつかむ',
+        text: '第I部 Bluetooth の土台',
         items: [
-          chapter(1, 'Bluetooth LE とは何か'),
+          chapter(1, 'Bluetooth とは何か'),
           chapter(2, '仕様書の地図'),
-          chapter(3, 'スタックという考え方')
+          chapter(3, 'スタックという考え方'),
+          chapter(4, '電波の基礎'),
+          chapter(5, 'HCI')
         ]
       },
       {
-        text: '第II部 電波の世界（コントローラ）',
+        text: '第II部 Classic（BR/EDR）',
         items: [
-          chapter(4, '電波と物理層'),
-          chapter(5, 'リンク層の基本'),
-          chapter(6, 'アドバタイズ'),
-          chapter(7, 'コネクション'),
-          chapter(8, '定期アドバタイズと PAwR'),
-          chapter(9, 'アイソクロナス通信と音'),
-          chapter(10, '方向と距離をはかる')
+          chapter(6, 'ピコネットと時計'),
+          chapter(7, '電波とパケット'),
+          chapter(8, '見つける、つなぐ'),
+          chapter(9, '5階建ての運び道'),
+          chapter(10, 'ACL：確実に運ぶ'),
+          chapter(11, 'SCO と eSCO：声を運ぶ'),
+          chapter(12, 'リンクマネージャと省電力'),
+          chapter(13, 'L2CAP と SDP'),
+          chapter(14, 'プロファイル'),
+          chapter(15, 'ペアリングと暗号'),
+          chapter(16, '混雑をよける'),
+          chapter(17, '総まとめ：音楽が鳴るまで')
         ]
       },
       {
-        text: '第III部 データの世界（ホスト）',
+        text: '第III部 LE：電波の世界',
         items: [
-          chapter(11, 'HCI'),
-          chapter(12, 'L2CAP'),
-          chapter(13, 'ATT'),
-          chapter(14, 'GATT'),
-          chapter(15, 'GAP')
+          chapter(18, 'LE の考え方'),
+          chapter(19, 'LE の電波と PHY'),
+          chapter(20, 'リンク層の基本'),
+          chapter(21, 'アドバタイズ'),
+          chapter(22, 'コネクション'),
+          chapter(23, '定期アドバタイズと PAwR'),
+          chapter(24, 'アイソクロナス通信と音'),
+          chapter(25, '方向と距離をはかる')
         ]
       },
       {
-        text: '第IV部 安全と実践',
+        text: '第IV部 LE：データの世界',
         items: [
-          chapter(16, 'セキュリティ'),
-          chapter(17, 'アプリを作るときの現実'),
-          chapter(18, '総まとめ：心拍が届くまで')
+          chapter(26, 'L2CAP'),
+          chapter(27, 'ATT'),
+          chapter(28, 'GATT'),
+          chapter(29, 'GAP'),
+          chapter(30, 'セキュリティ')
         ]
       },
       {
-        text: '第V部 Classic（BR/EDR）',
+        text: '第V部 実践とまとめ',
         items: [
-          chapter(19, 'Classic の全体像'),
-          chapter(20, 'ピコネットと時計'),
-          chapter(21, '電波とパケット'),
-          chapter(22, '見つける、つなぐ'),
-          chapter(23, '5階建ての運び道'),
-          chapter(24, 'ACL：確実に運ぶ'),
-          chapter(25, 'SCO と eSCO：声を運ぶ'),
-          chapter(26, 'リンクマネージャと省電力'),
-          chapter(27, 'L2CAP と SDP'),
-          chapter(28, 'プロファイル'),
-          chapter(29, 'ペアリングと暗号'),
-          chapter(30, '混雑をよける'),
-          chapter(31, '総まとめ：音楽が鳴るまで')
+          chapter(31, 'アプリを作るときの現実'),
+          chapter(32, '総まとめ：心拍が届くまで'),
+          chapter(33, 'Classic と LE、どちらを選ぶか')
         ]
       },
       {

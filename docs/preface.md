@@ -12,7 +12,7 @@
 - 音楽を聴いているのに電話が鳴ると、音質が急に変わるのはなぜか
 - ヘッドホンは2回目から、なぜ確認なしでつながるのか
 
-Bluetooth には、LE（Low Energy）と Classic（BR/EDR）という別々の方式があります。本書は第I〜IV部で LE を、第V部で Classic を扱います。
+Bluetooth には、Classic（BR/EDR）と LE（Low Energy）という別々の方式があります。本書は第I部で2つに共通の土台を固め、第II部で Classic を、第III部と第IV部で LE を扱い、第V部で両方をまとめます。
 
 ## 想定している読者
 
@@ -24,7 +24,7 @@ Bluetooth には、LE（Low Energy）と Classic（BR/EDR）という別々の�
 
 ## 原本との関係
 
-この本は、Bluetooth 規格の管理団体 Bluetooth SIG が公開している解説文書 [The Bluetooth® Low Energy Primer](https://www.bluetooth.com/bluetooth-le-primer/)（2024年10月の v1.3.0。以下「原本」）を骨組みの参考にしています。
+LE の部分（第III部、第IV部と第I部の一部）は、Bluetooth 規格の管理団体 Bluetooth SIG が公開している解説文書 [The Bluetooth® Low Energy Primer](https://www.bluetooth.com/bluetooth-le-primer/)（2024年10月の v1.3.0。以下「原本」）を骨組みの参考にしています。
 
 ただし**翻訳ではありません**。原本は製品開発者に向けて、スタックの下の層から順に説明しています。本書では読者層に合わせて説明の順番を組み替え、文章、たとえ話、図、確認問題はすべて書き下ろしました。原本の図や文章は転載していません。
 
@@ -32,7 +32,7 @@ Bluetooth には、LE（Low Energy）と Classic（BR/EDR）という別々の�
 
 細かすぎる話は本文からカットしました。その代わり、カットした話は各章の終わりに「原本にはこんな話も」という枠で、どの節に何が書いてあるかを一言ずつ残しています。全体の対応は[付録C](./primer-map)にまとめました。
 
-第V部（Classic 編）の骨組みにしたのは、原本ではなく [Bluetooth Core Specification v7.0 の Architecture 編](https://www.bluetooth.com/wp-content/uploads/Files/Specification/HTML/Core_v7.0/out/en/architecture%2C-change-history%2C-and-conventions/architecture--arch-.html)です。原本は LE 専用の解説だからです。こちらも翻訳ではなく書き下ろしで、章末の枠は「仕様書にはこんな話も」という名前になっています。対応は[付録D](./core-map)にまとめました。第V部で「原本」と言うときは、第I〜IV部と同じ LE Primer のことです。
+Classic の部分（第II部と第I部の一部）の骨組みにしたのは、原本ではなく [Bluetooth Core Specification v7.0 の Architecture 編](https://www.bluetooth.com/wp-content/uploads/Files/Specification/HTML/Core_v7.0/out/en/architecture%2C-change-history%2C-and-conventions/architecture--arch-.html)です。原本は LE 専用の解説だからです。こちらも翻訳ではなく書き下ろしで、章末の枠は「仕様書にはこんな話も」という名前になっています。対応は[付録D](./core-map)にまとめました。Classic の章で「原本」と言うときも、LE Primer のことです。
 
 本書の記述は、2026年11月に Core v7.0 と関連する仕様書に照らして、1つずつ確かめました。原本が扱う Core 6.0 より後の変更も、関係する章に反映しています。どの記述をどの節で確かめたかは、[GitHub の review フォルダ](https://github.com/mujuko/bluetooth-the-book/tree/main/review)に記録を残しました。ただし、実際の機器では確かめていません。
 
@@ -69,21 +69,21 @@ Bluetooth には、LE（Low Energy）と Classic（BR/EDR）という別々の�
 :::
 
 ::: spec
-第V部で、本書で省略した話が Core 仕様のどこにあるかを示します（「ARCH §3.5」は Architecture 編の 3.5 節です。略号の一覧は[第19章](./ch19)）。
+本書で省略した話が Core 仕様のどこにあるかを示します（「ARCH §3.5」は Architecture 編の 3.5 節です。略号の一覧は[第2章](./ch02)）。
 :::
 
 ## おすすめの読み方
 
-順番に読むのが基本です。第I部で全体の地図を手に入れ、第II部と第III部で細部を歩き、第IV部で全体をつなぎ直す構成になっています。第V部の Classic 編は、第19章から単独で読み始めることもできます。
+順番に読むのが基本です。第I部で2つの方式に共通の地図を手に入れ、第II部で Classic を、第III部と第IV部で LE を下の層から歩き、第V部で全体をつなぎ直す構成になっています。第I部を読んだあとなら、第II部と第III部のどちらから読み始めてもかまいません。
 
 | 目的 | 読むところ |
 |---|---|
-| とにかく全体をつかみたい | 第1章 → 第3章 → 第6章 → 第7章 → 第14章 → 第18章 |
-| スマホアプリや機器のソフトを作りたい | 第I部 → 第6・7章 → 第III部 → 第IV部 |
-| 無線そのものに興味がある | 第4章 → 第5章 → 第7章 → 第10章 |
-| ワイヤレス音声に興味がある | 第1・3章 → 第4〜7章 → 第9章 → 第25章 → 第28章 |
-| Classic を体系的に学びたい | 第3・4章（基礎）→ 第V部を順に |
-| Classic のヘッドホンの動きをつかみたい | 第19章 → 第20章 → 第22章 → 第28章 → 第31章 |
+| とにかく全体をつかみたい | 第1章 → 第3章 → 第17章 → 第18章 → 第32章 → 第33章 |
+| Classic を体系的に学びたい | 第I部 → 第II部を順に |
+| Classic のヘッドホンの動きをつかみたい | 第1章 → 第6章 → 第8章 → 第14章 → 第17章 |
+| スマホアプリや機器のソフトを作りたい | 第I部 → 第18章 → 第21章 → 第22章 → 第IV部 → 第31章 |
+| 無線そのものに興味がある | 第4章 → 第6章 → 第7章 → 第19章 → 第22章 → 第25章 |
+| ワイヤレス音声に興味がある | 第1章 → 第11章 → 第14章 → 第24章 → 第33章 |
 
 ## 最低限の約束ごと
 
